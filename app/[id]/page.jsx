@@ -68,19 +68,27 @@ const ChatPage = () => {
     setConversations(convos)
   }
 
-  useEffect(() => {
-    // Delay the execution of fetchConversations() by 500 milliseconds
+  // useEffect(() => {
+  //   // Delay the execution of fetchConversations() by 500 milliseconds
     
+  //   const delay = setTimeout(() => {
+  //       fetchConversations();
+  //     }, 500);
+  //   // Clear the timeout on component unmount
+  //     console.log('inside [id] page.jsx useEffect:')
+  //     console.log('calling router.push:', pathname)
+  //     // router.push(`${pathname}`)
+  //     router.refresh()
+  //     return () => clearTimeout(delay);
+  // }, [chatId]);
+
+  useEffect(() => {
     const delay = setTimeout(() => {
-        fetchConversations();
-      }, 500);
-    // Clear the timeout on component unmount
-      console.log('inside [id] page.jsx useEffect:')
-      console.log('calling router.push:', pathname)
-      // router.push(`${pathname}`)
-      router.refresh()
-      return () => clearTimeout(delay);
-  }, [chatId]);
+      fetchConversations();
+    }, 500);
+  
+    return () => clearTimeout(delay);
+  }, [chatId, fetchConversations]);
 
   
   console.log('conversations dynamic')
