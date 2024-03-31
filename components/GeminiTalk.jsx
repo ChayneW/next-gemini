@@ -9,7 +9,6 @@ import { toast } from 'react-hot-toast'
 
 
 const GeminiTalk = ({path}) => {
-    const conversationContainerRef = useRef(null);
     const [chatId, setChatId] = useState(path)
     const [chatHistory, setChatHistory] = useState([])
     const [value, setValue] = useState('')
@@ -128,69 +127,53 @@ const GeminiTalk = ({path}) => {
     }
 
     return (
-    // <div className='absolute bottom-0 min-w-fit max-md:px-10 md:px-20 flex flex-col h-full overflow-y-auto'>
 
-    <>
-        {isLoading && 
-                <div className='w-full grid justify-center py-10'>
-                    <LoadingCard/>
-                    {/* <div class="loader">
-                        <div class="bar1"></div>
-                        <div class="bar2"></div>
-                        <div class="bar3"></div>
-                        <div class="bar4"></div>
-                        <div class="bar5"></div>
-                        <div class="bar6"></div>
-                        <div class="bar7"></div>
-                        <div class="bar8"></div>
-                        <div class="bar9"></div>
-                        <div class="bar10"></div>
-                        <div class="bar11"></div>
-                        <div class="bar12"></div>
-                    </div> */}
-                </div>
-            }
-    
+        <>
+            {isLoading && 
+                    <div className='w-full grid justify-center py-10'>
+                        <LoadingCard/>
+                    </div>
+                }
+        
 
-        <div className='fixed bottom-0 z-10 w-full'>
-            {/* <div className='justify-center mx-auto max-md:px-10 md:pl-28 flex flex-col overflow-y-auto pb-5'> */}
-            <div className='justify-center mx-auto max-md:px-10 max-sm:pl-[10%] sm:max-md:pl-[20%] md:pl-[15%] flex flex-col overflow-y-auto pb-5'>
+            <div className='fixed bottom-0 z-10 w-full'>
+                {/* <div className='justify-center mx-auto max-md:px-10 md:pl-28 flex flex-col overflow-y-auto pb-5'> */}
+                <div className='justify-center mx-auto max-md:px-10 max-sm:pl-[10%] sm:max-md:pl-[20%] md:pl-[15%] flex flex-col overflow-y-auto pb-5'>
 
-                {error && <p>{error}</p>}
-                {/* <div className='flex gap-5 max-lg:w-[300px] lg:w-[50vw] pl-10'> */}
-                <div className='flex gap-5 max-sm:w-[320px] sm:max-md:w-[380px] md:max-lg:w-[40vw] lg:w-[50vw]'>
-                    <Input
-                        // className='bg-transparent rounded-lg'
-                        className='bg-black rounded-lg text-white'
-                        placeholder='What time is it?'
-                        value={value}
-                        onChange={(e) => setValue(e.target.value)}
-                    />
-                    {!error && 
-                        // <Button onClick={getResponse} variant="outline" className='bg-[#14CC8F]'>
-                        <Button onClick={handleButtonClick} variant="outline" className='bg-[#14CC8F]'>
+                    {error && <p>{error}</p>}
+                    {/* <div className='flex gap-5 max-lg:w-[300px] lg:w-[50vw] pl-10'> */}
+                    <div className='flex gap-5 max-sm:w-[320px] sm:max-md:w-[380px] md:max-lg:w-[40vw] lg:w-[50vw]'>
+                        <Input
+                            // className='bg-transparent rounded-lg'
+                            className='bg-black rounded-lg text-white'
+                            placeholder='What time is it?'
+                            value={value}
+                            onChange={(e) => setValue(e.target.value)}
+                        />
+                        {!error && 
+                            // <Button onClick={getResponse} variant="outline" className='bg-[#14CC8F]'>
+                            <Button onClick={handleButtonClick} variant="outline" className='bg-[#14CC8F]'>
 
-                            <Image
-                                src='/telegram.svg'
-                                width={30}
-                                height={40}
-                                alt='send-button'
-                                className='bg-transparent'
-                            
-                            />
-                        </Button>
-                    }
+                                <Image
+                                    src='/telegram.svg'
+                                    width={30}
+                                    height={40}
+                                    alt='send-button'
+                                    className='bg-transparent'
+                                
+                                />
+                            </Button>
+                        }
 
-                    {error && 
-                        <Button onClick={clear} variant="outline"
-                        className='bg-[#14CC8F]'>
-                            Clear
-                        </Button>
-                    } 
+                        {error && 
+                            <Button onClick={clear} variant="outline" className='bg-[#14CC8F]'>
+                                Clear
+                            </Button>
+                        } 
+                    </div>
                 </div>
             </div>
-        </div>
-    </>
+        </>
     )
 }
 

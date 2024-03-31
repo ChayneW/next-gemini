@@ -2,25 +2,19 @@
 import React from 'react'
 import Image from 'next/image'
 import GeminiTalk from '@/components/GeminiTalk'
-import Conversations from '@/components/Conversations'
-import { currentUser } from '@clerk/nextjs';
-import ConversationsContainer from '@/components/ConversationsContainer';
+import { currentUser } from '@clerk/nextjs'
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-
 
 export default async function Home() {
   const user = await currentUser()
   console.log(user)
-
-
 
   if (!user) 
   return (
     <>
       <div className='grid justify-center text-white pt-20'>
         {/* Not logged in */}
-        
         <h1 className='text-2xl text-center'> Welcome to Next-Gemini</h1>
 
         <div className='grid justify-center relative w-[300px] h-[300px]'>
