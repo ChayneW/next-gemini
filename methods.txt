@@ -1,0 +1,12 @@
+@1:25:00
+going to need create 'create' dynamic routes to handle new chats
+useRouter,
+
+pathnames can help with checks 
+
+- possibly save evrything on backend have backend save msg to supa, then call db on client side 
+
+@2:12:00
+on create message page (client), take text( question,) call to backend to send data 
+
+@2:23:00 api backend
