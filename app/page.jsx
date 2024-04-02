@@ -5,14 +5,41 @@ import GeminiTalk from '@/components/GeminiTalk'
 import { currentUser } from '@clerk/nextjs'
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { MotionDiv } from '@/components/MotionDiv';
 
 export default async function Home() {
   const user = await currentUser()
-  console.log(user)
+  console.log('Main home page user check:', user)
+
+   // Framer Motion config:
+   const variants = {
+    hidden: {opacity: 0},
+    visible: {opacity: 1},
+  }
 
   if (!user) 
   return (
     <>
+    <MotionDiv 
+      variants={variants}
+      initial='hidden'
+      animate='visible'
+      transition={{
+        // using index of card as a index timer to sequentially show cards:
+        delay:0.25,
+        ease: 'easeInOut',
+        duration: .5
+      }}
+      viewport={{amount: 0}}
+      className='relative'
+    >
+
+      <div 
+        style={{backgroundImage: `url(/world-map-with-square-dots.png)`}}
+        className='details-container z-0 opacity-20 h-[100%]'
+        // className='details-container opacity-20 z-0 max-md:h-[80vh] md:h-[100vh]'
+      ></div>
+
       <div className='grid justify-center text-white pt-20'>
         {/* Not logged in */}
         <h1 className='text-2xl text-center'> Welcome to Next-Gemini</h1>
@@ -37,37 +64,59 @@ export default async function Home() {
         <h1>Come venture into Gemini&apos;s world. </h1>
       </div>
 
-      <div className='max-md:grid md:hidden justify-center items-center py-10'>
-          <div className='grid gap-10 justify-around py-5 text-white'>
+      <div className='max-md:grid md:hidden justify-center items-center py-5'>
+          <div className='grid gap-5 justify-around py-3 text-white'>
             <Button className='bg-black hover:bg-[#14CC8F]'><Link href='/sign-up'>Sign Up</Link></Button>
             <Button className='bg-black hover:bg-[#14CC8F]'><Link href='/sign-in'>Sign In</Link></Button>
           </div>
       </div>
+
+    </MotionDiv>
   </>
   )
   
   return (
-  <div className='grid justify-center p-20 text-white items-center gap-5'>
-    <div className='grid justify-center relative w-[150px] h-[150px] py-5'> 
-      <Image
-        className='rounded-lg'
-        src={"/chatgpt-alt.png"}
-        alt='test logo'
-        fill
-        style={{objectFit: 'cover'}}
-      />
-    </div>
-    
-    <div>
-      <h1 className='text-center'>Welcome, {user?.firstName}</h1>
-    </div>
-    <div>
-      <Button className='hover:bg-[#14CC8F]'>
-        <Link href={'/dashboard'}>
-          <h1>Go to Dashboard</h1>
-        </Link>
-      </Button>
-    </div>
-  </div>
+    <MotionDiv 
+      variants={variants}
+      initial='hidden'
+      animate='visible'
+      transition={{
+        // using index of card as a index timer to sequentially show cards:
+        delay:0.25,
+        ease: 'easeInOut',
+        duration: .5
+      }}
+      viewport={{amount: 0}}
+      className='relative'
+      >
+  
+        <div 
+          style={{backgroundImage: `url(/world-map-with-square-dots.png)`}}
+          className='details-container z-0 opacity-30 h-[100%]'
+          // className='details-container opacity-20 z-0 max-md:h-[80vh] md:h-[100vh]'
+        ></div>
+      <div className='relative grid justify-center p-20 text-white items-center gap-5'>
+        <div className='grid justify-center relative w-[150px] h-[150px] py-5'> 
+          <Image
+            className='rounded-lg'
+            src={"/chatgpt-alt.png"}
+            alt='test logo'
+            fill
+            style={{objectFit: 'cover'}}
+          />
+        </div>
+        
+        <div>
+          <h1 className='text-center'>Welcome, {user?.firstName}</h1>
+        </div>
+        <div>
+          <Button className='hover:bg-[#14CC8F]'>
+            <Link href={'/dashboard'}>
+              <h1>Go to Dashboard</h1>
+            </Link>
+          </Button>
+        </div>
+      </div>
+    </MotionDiv>
   )
 }

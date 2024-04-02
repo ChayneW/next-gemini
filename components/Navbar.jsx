@@ -12,12 +12,21 @@ import ConversationsContainer from './ConversationsContainer';
 const Navbar = () => {
   const {userId} = useAuth()
   const [isLoading, setIsLoading] = useState(false)
+
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
+
+  const toggleSheet = () => {
+    setIsSheetOpen(!isSheetOpen);
+  };
+
+
   return (
     <nav className='w-full glass-container py-2'>
       {/* Navbar */}
       <div className='chat-glass'>
         <Sheet>
             <SheetTrigger asChild>
+              {/* <div onClick={toggleSheet} className='flex justify-between items-center px-5'> */}
               <div className='flex justify-between items-center px-5'>
                 <Button variant="outline" className='grid relative w-[50px] h-[50px] py-5'>
                   <Image
@@ -34,7 +43,8 @@ const Navbar = () => {
               </div>
             </SheetTrigger>
 
-            <SheetContent side='left' className='hidden max-md:block w-[250px] '>
+            <SheetContent side='left' className='hidden max-md:block w-[250px]'>
+            {/* <SheetContent side='left' className={`hidden max-md:block w-[250px] ${isSheetOpen ? 'block' : 'hidden'}`}> */}
               <SheetHeader className='bg-transparent'>
                 <div className='flex justify-around items-center bg-transparent space-x-3'>
                   <Image
@@ -51,7 +61,7 @@ const Navbar = () => {
               {userId ?
                 (
                 <div className='pl-5 bg-transparent grid space-y-10 pt-10 text-white'>
-                  <Link href='/' className='bg-transparent text-center'>Dashboard:</Link>
+                  <Link href='/dashboard' className='bg-transparent text-center'>Dashboard:</Link>
                   <ConversationsContainer/>
                 </div>
                 )

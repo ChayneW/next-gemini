@@ -146,7 +146,7 @@ const GeminiTalk = ({path}) => {
                         <Input
                             // className='bg-transparent rounded-lg'
                             className='bg-black rounded-lg text-white'
-                            placeholder='What time is it?'
+                            placeholder="EX: Who's the fastest man alive?"
                             value={value}
                             onChange={(e) => setValue(e.target.value)}
                         />

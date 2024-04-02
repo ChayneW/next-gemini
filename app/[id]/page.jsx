@@ -3,11 +3,12 @@ import React, {useState, useEffect, useRef} from 'react'
 import GeminiTalk from '@/components/GeminiTalk'
 import { usePathname } from 'next/navigation'
 import { useRouter } from 'next/navigation'
-import { GetConvos} from '@/utils/supabaseRequests'
+// import { GetConvos} from '@/utils/supabaseRequests'
 import { getToken, useAuth, auth } from '@clerk/nextjs';
 import { supabaseClient } from '@/utils/supabaseClient'
 import { createClient } from '@supabase/supabase-js'
 import Image from 'next/image'
+import { MotionDiv } from '@/components/MotionDiv'
 
 const ChatPage = () => {
   const {getToken, userId} = useAuth()
@@ -26,6 +27,12 @@ const ChatPage = () => {
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  // Framer Motion config:
+  const variants = {
+    hidden: {opacity: 0},
+    visible: {opacity: 1},
+  }
 
    // Fetch conversation data from Supabase and update state
    const fetchConversations = async () => {    
@@ -64,11 +71,11 @@ const ChatPage = () => {
   return (
     <div className='relative' style={{ paddingBottom: '100px' }}>
       <div>
-        {conversations.map((conversation, index) => (
+        {conversations?.map((conversation, index) => (
             <div key={index}
               className=''>
               {/* Render your conversation data here */}
-              {conversation.conversation_history.map((convo, index) => (
+              {conversation?.conversation_history?.map((convo, index) => (
                 <div 
                   key={index}
                   className='text-white px-10'>
@@ -112,7 +119,6 @@ const ChatPage = () => {
       <div className="absolute bottom-0 w-full">
         <GeminiTalk path={pathname} />
       </div>
-
     </div>
   )
 }

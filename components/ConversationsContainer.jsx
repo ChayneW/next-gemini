@@ -66,7 +66,7 @@ const ConversationsContainer = () => {
   // if
   return (
     <div className='max-h-[65vh] overflow-y-auto text-white py-10'>
-        {supaConvos.map((note, _index) => (
+        {supaConvos?.map((note, _index) => (
           <div key={_index} className='grid py-5'>
             <div className='grid grid-cols-2'>
               <Link href={`/${note.id}`}>
