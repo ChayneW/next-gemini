@@ -58,17 +58,19 @@ export default async function Home() {
 
       </div>
 
-      <div className='grid justify-center text-white text-center py-10 gap-5'>
-        <h1 className='text-2xl'>The Next Generation of AI Excellence!</h1>
-        <h1>Powered with Google&apos;s State of the Art AI Gemini and the power of Vercel&apos;s NextJS Framework</h1>
-        <h1>Come venture into Gemini&apos;s world. </h1>
-      </div>
+      <div className='relative'>
+        <div className='grid justify-center text-white text-center py-10 gap-5'>
+          <h1 className='text-2xl'>The Next Generation of AI Excellence!</h1>
+          <h1>Powered with Google&apos;s State of the Art AI Gemini and the power of Vercel&apos;s NextJS Framework</h1>
+          <h1>Come venture into Gemini&apos;s world. </h1>
+        </div>
 
-      <div className='max-md:grid md:hidden justify-center items-center py-5'>
-          <div className='grid gap-5 justify-around py-3 text-white'>
-            <Button className='bg-black hover:bg-[#14CC8F]'><Link href='/sign-up'>Sign Up</Link></Button>
-            <Button className='bg-black hover:bg-[#14CC8F]'><Link href='/sign-in'>Sign In</Link></Button>
-          </div>
+        <div className='max-md:grid md:hidden justify-center items-center py-5'>
+            <div className='grid gap-5 justify-around py-3 text-white'>
+              <Button className='bg-black hover:bg-[#14CC8F]'><Link href='/sign-up'>Sign Up</Link></Button>
+              <Button className='bg-black hover:bg-[#14CC8F]'><Link href='/sign-in'>Sign In</Link></Button>
+            </div>
+        </div>
       </div>
 
     </MotionDiv>
@@ -106,15 +108,17 @@ export default async function Home() {
           />
         </div>
         
-        <div>
-          <h1 className='text-center'>Welcome, {user?.firstName}</h1>
-        </div>
-        <div>
-          <Button className='hover:bg-[#14CC8F]'>
-            <Link href={'/dashboard'}>
-              <h1>Go to Dashboard</h1>
-            </Link>
-          </Button>
+        <div className='relative'>
+          <div>
+            <h1 className='text-center'>Welcome, {user?.firstName}</h1>
+          </div>
+          <div>
+            <Button className='hover:bg-[#14CC8F]'>
+              <Link href={'/dashboard'}>
+                <h1>Go to Dashboard</h1>
+              </Link>
+            </Button>
+          </div>
         </div>
       </div>
     </MotionDiv>
