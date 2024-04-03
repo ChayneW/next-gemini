@@ -9,8 +9,6 @@ import { useAuth, useUser } from '@clerk/nextjs';
 import LoadingCard from '@/components/LoadingCard'
 import Image from 'next/image'
 
-const SidebarFallback = () => <div>Loading Sidebar...</div>;
-
 
 const DashboardPage = () => {
     

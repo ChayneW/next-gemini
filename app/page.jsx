@@ -1,7 +1,6 @@
 // 'use client'
 import React from 'react'
 import Image from 'next/image'
-import GeminiTalk from '@/components/GeminiTalk'
 import { currentUser } from '@clerk/nextjs'
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -50,8 +49,6 @@ export default async function Home() {
             src={'/chatgpt-alt-removebg-preview.png'}
             fill
             style={{objectFit: 'cover'}}
-            // width={400}
-            // height={400}
             alt='logo'
           />
         </div>
@@ -97,7 +94,7 @@ export default async function Home() {
         className='details-container z-0 opacity-40 h-[100%]'
         // className='details-container opacity-20 z-0 max-md:h-[80vh] md:h-[100vh]'
       ></div>
-      
+
       <div className='relative grid justify-center p-10 text-white items-center gap-5 h-full'>
         <div className='grid justify-center relative w-[150px] h-[150px] py-5'> 
           <Image

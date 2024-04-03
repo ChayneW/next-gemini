@@ -70,11 +70,9 @@ const ConversationsContainer = () => {
   return (
     <div className='max-h-[65vh] overflow-y-auto text-white py-10'>
         {supaConvos?.map((note, _index) => (
-          // <div key={_index} className='grid py-5'>
           <div key={_index} className={`rounded-lg grid py-5 pl-2 ${path === `/${note.id}` ? 'bg-[#333]' : ''}`}>
             <div className='grid grid-cols-2'>
               <Link href={`/${note.id}`}>
-                {/* <h1>{note.title}</h1> */}
                 <h1 className='max-md:text-white  pr-2'>{shortenTitle(note.title)}</h1>
               </Link>
               <button 
@@ -88,23 +86,10 @@ const ConversationsContainer = () => {
                         width={20}
                         height={20}
                         alt='delete'
-                        // className='fill-cyan-700'
                       />
                     </div>
-
-                    {/* <div className='hidden md:block'>
-                      <Image
-                        src='/trash.svg'
-                        width={20}
-                        height={20}
-                        alt='delete'
-                        // className='fill-cyan-700'
-                      />
-                    </div> */}
                   </div>
-
                 }
-                {/* Delete */}
               </button>
             </div>
           </div>

@@ -26,15 +26,11 @@ export const checkUserExists = () => {
             { user_id: user.id, f_name: user.firstName || '' },
           ]);
         }
-        // if (existingUser) {
-        //   console.log('found user:')
-        //   return true
-        // }
       }
     };
 
     checkAndInsertUser();
   }, [user]);
 
-  return null; // This component does not
+  return null; 
 }

@@ -3,12 +3,12 @@ import React, {useState, useEffect, useRef} from 'react'
 import GeminiTalk from '@/components/GeminiTalk'
 import { usePathname } from 'next/navigation'
 import { useRouter } from 'next/navigation'
-// import { GetConvos} from '@/utils/supabaseRequests'
 import { getToken, useAuth, auth } from '@clerk/nextjs';
 import { supabaseClient } from '@/utils/supabaseClient'
 import { createClient } from '@supabase/supabase-js'
 import Image from 'next/image'
-import { MotionDiv } from '@/components/MotionDiv'
+import MiniLoader from '@/components/MiniLoader'
+import LoadingCard from '@/components/LoadingCard'
 
 const ChatPage = () => {
   const {getToken, userId} = useAuth()
@@ -18,10 +18,9 @@ const ChatPage = () => {
 
   const router = useRouter();
   const [conversations, setConversations] = useState([])
-  
-  // const supabase = supabaseClient
-  const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
+  const [isLoading, setIsLoading] = useState(true); // Initialize with true to show loading indicator
 
+  
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -54,6 +53,7 @@ const ChatPage = () => {
     }
   
     setConversations(convos)
+    setIsLoading(false)
   }
 
   useEffect(() => {
@@ -67,6 +67,14 @@ const ChatPage = () => {
   
   console.log('conversations dynamic')
   console.log(conversations)
+
+  if (isLoading) {
+    return <div className='grid justify-center text-white pt-32'>
+      Loading...
+      {/* <MiniLoader/> */}
+      <LoadingCard/>
+      </div>;
+  }
   
   return (
     <div className='relative' style={{ paddingBottom: '100px' }}>
@@ -80,14 +88,11 @@ const ChatPage = () => {
                   key={index}
                   className='text-white px-10'>
                   <br></br>
-                  {/* <h1>user: {convo.user}</h1> */}
                   <h1 className='py-2'>User:</h1>
                   <h1>{convo.user}</h1>
                   <br></br>
                   <h1 className='py-2'>Model:</h1>
                   <h1 className="conversation-text" style={{whiteSpace:'pre-wrap'}}>
-                  {/* <h1 className="conversation-text" style={{ overflowWrap: 'break-word' }}> */}
-                  {/* <h1> */}
                    {convo.model} 
                   </h1>
                   <br></br>
@@ -99,17 +104,11 @@ const ChatPage = () => {
           ))}
       </div>
 
-      {/* <GeminiTalk
-        path={pathname}
-      /> */}
-
       {/* Scroll to Bottom button */}
       <button className="fixed top-20 right-10 z-50 bg-[#14CC8F] text-white px-4 py-2 rounded" onClick={scrollToBottom}>
         <Image
           className='rounded-lg'
           src={'/down-arrow.svg'}
-          // fill
-          // style={{objectFit: 'cover'}}
           width={15}
           height={30}
           alt='arrow-down'

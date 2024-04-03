@@ -35,7 +35,6 @@ const GeminiTalk = ({path}) => {
     const getResponse = async () => {
         setIsLoading(true)
         console.log('inside getResponse():')
-        // toast.success('You did it!')
         let newPath 
 
 
@@ -77,8 +76,6 @@ const GeminiTalk = ({path}) => {
 
             console.log(`getResponse(), router.push to ${data.chatId}`)
             newPath = data.chatId
-            // router.push(`/${data.chatId}`)
-            // setChatId(data.chatId)
             router.push(`/${newPath}`)
 
             if (chatId !== '/dashboard') {
@@ -104,10 +101,7 @@ const GeminiTalk = ({path}) => {
             console.log('inside finally block')
             console.log(`how router will look: /${newPath}`)
             setIsLoading(false); // End loading
-            // router.refresh()
             router.push(`/${newPath}`)
-            // router.push(`/${data.chatId}`)
-
         }
     };
 
@@ -123,17 +117,16 @@ const GeminiTalk = ({path}) => {
         setValue('')
         setError('')
         setChatHistory([])
-        // router.refresh()
     }
 
     return (
 
         <>
             {isLoading && 
-                    <div className='w-full grid justify-center py-10'>
-                        <LoadingCard/>
-                    </div>
-                }
+                <div className='w-full grid justify-center py-10'>
+                    <LoadingCard/>
+                </div>
+            }
         
 
             <div className='fixed bottom-0 z-10 w-full'>

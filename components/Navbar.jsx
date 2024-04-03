@@ -26,7 +26,6 @@ const Navbar = () => {
       <div className='chat-glass'>
         <Sheet>
             <SheetTrigger asChild>
-              {/* <div onClick={toggleSheet} className='flex justify-between items-center px-5'> */}
               <div className='flex justify-between items-center px-5'>
                 <Button variant="outline" className='grid relative w-[50px] h-[50px] py-5'>
                   <Image
