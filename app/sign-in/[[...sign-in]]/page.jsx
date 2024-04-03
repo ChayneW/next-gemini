@@ -17,8 +17,8 @@ export default function Page() {
   // )
 
   const { isLoaded, signIn, setActive } = useSignIn();
-  const [email, setEmail] = React.useState("gemini_user@test.com");
-  const [password, setPassword] = React.useState("Gemini123");
+  const [email, setEmail] = useState("gemini_user@test.com");
+  const [password, setPassword] = useState("Gemini123");
   const router = useRouter();
  
   // Handle the submission of the sign-in form
@@ -59,15 +59,17 @@ export default function Page() {
     <div className="pt-20">
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className="grid justify-center gap-5">
-
-          <Button type="submit" className="bg-[#14CC8F]">
-            <h1>Demo Account Click Here</h1>
-          </Button>
+          <div className="grid px-20">
+            <Button type="submit" className="bg-[#14CC8F]">
+              <h1>Demo Account Click Here</h1>
+            </Button>
+          </div>
           
           <div className="grid justify-center">
-            <h1 className="text-white text-center">Personal Log In:</h1>
+            <h1 className="text-white text-center py-2">Personal Log In:</h1>
             <SignIn/>
           </div>
+
         </div>
       </form>
     </div>
