@@ -7,7 +7,8 @@ export default function Page() {
                <h1>Demo Account available in Sign-In page</h1>
             </div>
             
-            <SignUp initialValues={{emailAddress: 'gemini_user@test.com'}}/>
+            {/* <SignUp initialValues={{emailAddress: 'gemini_user@test.com'}}/> */}
+            <SignUp/>
         </div>
       )
 }

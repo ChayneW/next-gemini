@@ -59,14 +59,14 @@ export default function Page() {
     <div className="pt-20">
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className="grid justify-center gap-5">
-          
+
           <div className="grid px-20">
             <Button type="submit" className="bg-[#14CC8F]">
-              <h1>Demo Account Click Here</h1>
+              <h1 className="text-white text-center">Demo Account Click Here</h1>
             </Button>
           </div>
           
-          <div className="grid justify-center">
+          <div className="grid justify-center px-5">
             <h1 className="text-white text-center py-2">Personal Log In:</h1>
             <SignIn/>
           </div>
