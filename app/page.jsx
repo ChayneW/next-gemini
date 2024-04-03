@@ -36,7 +36,7 @@ export default async function Home() {
 
       <div 
         style={{backgroundImage: `url(/world-map-with-square-dots.png)`}}
-        className='details-container z-0 opacity-20 h-[100%]'
+        className='details-container z-0 opacity-40 h-[100%]'
         // className='details-container opacity-20 z-0 max-md:h-[80vh] md:h-[100vh]'
       ></div>
 
@@ -89,15 +89,16 @@ export default async function Home() {
         duration: .5
       }}
       viewport={{amount: 0}}
-      className='relative'
+      className='relative h-full'
       >
   
-        <div 
-          style={{backgroundImage: `url(/world-map-with-square-dots.png)`}}
-          className='details-container z-0 opacity-30 h-[100%]'
-          // className='details-container opacity-20 z-0 max-md:h-[80vh] md:h-[100vh]'
-        ></div>
-      <div className='relative grid justify-center p-20 text-white items-center gap-5'>
+      <div 
+        style={{backgroundImage: `url(/world-map-with-square-dots.png)`}}
+        className='details-container z-0 opacity-40 h-[100%]'
+        // className='details-container opacity-20 z-0 max-md:h-[80vh] md:h-[100vh]'
+      ></div>
+      
+      <div className='relative grid justify-center p-10 text-white items-center gap-5 h-full'>
         <div className='grid justify-center relative w-[150px] h-[150px] py-5'> 
           <Image
             className='rounded-lg'
