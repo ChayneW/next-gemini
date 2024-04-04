@@ -77,7 +77,7 @@ const ChatPage = () => {
   }
   
   return (
-    <div className='relative' style={{ paddingBottom: '100px' }}>
+    <div className='relative h-full' style={{ paddingBottom: '100px' }}>
       <div className='pt-10'>
         {conversations?.map((conversation, index) => (
             <div key={index}
