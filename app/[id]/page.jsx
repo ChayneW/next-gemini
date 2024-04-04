@@ -78,7 +78,7 @@ const ChatPage = () => {
   
   return (
     <div className='relative' style={{ paddingBottom: '100px' }}>
-      <div>
+      <div className='pt-10'>
         {conversations?.map((conversation, index) => (
             <div key={index}
               className=''>
