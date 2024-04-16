@@ -12,7 +12,7 @@ const ConversationsContainer = () => {
 
   const path = usePathname()
   const router = useRouter()
-  console.log('path for conversations:', path)
+  // console.log('path for conversations:', path)
   
   const [supaConvos, setSupaConvos] = useState([])
   const [isDeleting, setIsDeleting] = useState(false); // State to track deletion process
@@ -22,9 +22,11 @@ const ConversationsContainer = () => {
   useEffect(() => {
     const fetchConvos = async () => {
       try {
-        console.log('inside conversations Container useEffect:')
+        // console.log('inside conversations Container useEffect:')
+
         const convos = await getAllChats()
-        console.log('convos:', convos)
+        // console.log('convos:', convos)
+        
         setSupaConvos(convos)
       } catch (error) {
         console.error('Error fetching conversations:', error.message);

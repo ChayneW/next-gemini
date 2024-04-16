@@ -35,17 +35,19 @@ const ChatPage = () => {
 
    // Fetch conversation data from Supabase and update state
    const fetchConversations = async () => {    
-    console.log('inside getConvos')
-    console.log(userId)
+    // console.log('inside getConvos')
+    // console.log(userId)
+
     const token = await getToken({"template": 'supabase'})
     const supabase = await supabaseClient(token)
     let { data: convos, error } = await supabase
       .from('conversations')
       // .select('conversation_history')
       .select('*')
-      .eq('chat_id', chatId);
-      console.log('inside fetchedConversations:')
-      console.log(convos)
+      .eq('chat_id', chatId)
+
+      // console.log('inside fetchedConversations:')
+      // console.log(convos)
   
     if (error) {
       console.error('Error fetching conversations', error);
@@ -65,8 +67,8 @@ const ChatPage = () => {
   }, [chatId, fetchConversations]);
 
   
-  console.log('conversations dynamic')
-  console.log(conversations)
+  // console.log('conversations dynamic')
+  // console.log(conversations)
 
   if (isLoading) {
     return <div className='grid justify-center text-white pt-32'>

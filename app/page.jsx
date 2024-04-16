@@ -8,7 +8,7 @@ import { MotionDiv } from '@/components/MotionDiv';
 
 export default async function Home() {
   const user = await currentUser()
-  console.log('Main home page user check:', user)
+  // console.log('Main home page user check:', user)
 
    // Framer Motion config:
    const variants = {

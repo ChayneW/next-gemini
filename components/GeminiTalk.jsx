@@ -18,7 +18,7 @@ const GeminiTalk = ({path}) => {
 
     useEffect(() => {
         setChatId(path);
-        console.log(chatId)
+        // console.log(chatId)
     }, [])
 
     const surpriseOptions = [
@@ -34,7 +34,7 @@ const GeminiTalk = ({path}) => {
 
     const getResponse = async () => {
         setIsLoading(true)
-        console.log('inside getResponse():')
+        // console.log('inside getResponse():')
         let newPath 
 
 
@@ -69,18 +69,20 @@ const GeminiTalk = ({path}) => {
                 throw new Error(`Error: ${response.status}`);
             }
             
-            const data = await response.json();
-            console.log('Data received:', data);
-            console.log('Current chatId:', chatId);
+            const data = await response.json()
+            // console.log('Data received:', data);
+            // console.log('Current chatId:', chatId);
+
             toast.success('Gemini has Responded:')
 
-            console.log(`getResponse(), router.push to ${data.chatId}`)
+            // console.log(`getResponse(), router.push to ${data.chatId}`)
             newPath = data.chatId
             router.push(`/${newPath}`)
 
             if (chatId !== '/dashboard') {
-                console.log('inside !== dashboard:')
-                console.log(`/${newPath}`)
+                // console.log('inside !== dashboard:')
+                // console.log(`/${newPath}`)
+
                 router.push(`/${chatId}`)
                 return
             }
@@ -98,8 +100,9 @@ const GeminiTalk = ({path}) => {
         } catch (error) {
             setError(`Something went wrong! Please try again later. ${error}`);
         } finally {
-            console.log('inside finally block')
-            console.log(`how router will look: /${newPath}`)
+            // console.log('inside finally block')
+            // console.log(`how router will look: /${newPath}`)
+            
             setIsLoading(false); // End loading
             router.push(`/${newPath}`)
         }

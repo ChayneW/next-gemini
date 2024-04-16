@@ -4,7 +4,7 @@ import { supabaseClient } from '@/utils/supabaseClient'; // Your Supabase client
 
 
 export const checkUserExists = () => {
-  console.log('inside checkUser')
+  // console.log('inside checkUser')
   const {getToken, userId} = useAuth()
   // const {getToken, userId} = auth()
   const { user } = useUser();

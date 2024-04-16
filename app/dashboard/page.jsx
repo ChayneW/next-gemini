@@ -12,11 +12,13 @@ import Image from 'next/image'
 
 const DashboardPage = () => {
     
-  console.log('inside Dashboard:')
+  // console.log('inside Dashboard:')
   const {getToken, userId} = useAuth()
   const {user} = useUser()
-  console.log('Dashboard userId:', userId)
-  console.log('Dashboard user:', user)
+
+  // console.log('Dashboard userId:', userId)
+  // console.log('Dashboard user:', user)
+  
   checkUserExists()
   const pathname = usePathname()
   const router = useRouter()

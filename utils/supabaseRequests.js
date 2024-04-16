@@ -4,23 +4,26 @@ import { supabaseClient } from '@/utils/supabaseClient'; // Your Supabase client
 
 export const getAllChats = async() => {
     const {getToken, userId} = auth()
-    console.log('inside getConvos')
-    console.log(userId)
+    // console.log('inside getConvos')
+    // console.log(userId)
+
     const token = await getToken({"template": 'supabase'})
     const supabase = await supabaseClient(token)
     const {data: convos} = await supabase
-        .from("chats")
-        .select("*")
-        .eq("user_id", userId)
-    console.log(convos)
+      .from("chats")
+      .select("*")
+      .eq("user_id", userId)
+
+    // console.log(convos)
     // console.log(data)
     return convos
 }
 
 export async function GetConvos(chatId) {
     const {getToken, userId} = auth()
-    console.log('inside getConvos')
-    console.log(userId)
+    // console.log('inside getConvos')
+    // console.log(userId)
+
     const token = await getToken({"template": 'supabase'})
     const supabase = await supabaseClient(token)
     let { data: conversations, error } = await supabase
@@ -40,8 +43,9 @@ export async function deleteChat(chatId) {
   try {
     // server connection"
     const {getToken, userId} = auth()
-    console.log('inside deleteChat:')
-    console.log(userId)
+    // console.log('inside deleteChat:')
+    // console.log(userId)
+    
     const token = await getToken({"template": 'supabase'})
     const supabase = await supabaseClient(token)
 
