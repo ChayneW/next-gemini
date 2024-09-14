@@ -5,6 +5,7 @@ import { ClerkProvider } from '@clerk/nextjs'
 import Sidebar from '@/components/Sidebar'
 import Navbar from '@/components/Navbar'
 import { Toaster } from "react-hot-toast"
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
             <div className='flex-1 h-screen overflow-y-auto bg-[#0D1A1A]'>
               <Toaster position='top-right'/>
               {children}
+              <Analytics />
             </div>
           </div>
         </body>
